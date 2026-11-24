@@ -1,0 +1,327 @@
+/* Kinkeeper's landing page: one stylesheet for both languages. Colours are the app's (blueprint §7): teal #00696B and
+   warm sand #FFDCBF, with dark-mode matches. Body text is 18px, as in the app. No web fonts or other outside files, so
+   opening the page asks nothing of any other site. */
+
+:root {
+  --teal: #00696b;
+  --teal-strong: #004f51;
+  --sand: #ffdcbf;
+  --bg: #fbf8f5;
+  --surface: #ffffff;
+  --surface-warm: #fff1e6;
+  --text: #1c1b1a;
+  --text-muted: #4d4843;
+  --border: #e3ddd7;
+  --on-teal: #ffffff;
+  --focus: #b35c00;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --teal: #4cdadb;
+    --teal-strong: #6ff6f7;
+    --sand: #ffb77a;
+    --bg: #121414;
+    --surface: #1b1f1f;
+    --surface-warm: #2a221c;
+    --text: #ece8e4;
+    --text-muted: #c2bcb6;
+    --border: #3a3f3f;
+    --on-teal: #003738;
+    --focus: #ffb77a;
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 112.5%; /* 18px, and it follows the browser's text-size setting */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--teal);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--teal-strong);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  background: var(--surface);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.wrap {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand svg {
+  width: 2rem;
+  height: 2rem;
+  flex: none;
+}
+
+.lang-switch {
+  font-size: 0.95rem;
+}
+
+/* Hero */
+
+.hero {
+  padding: 2.5rem 0 3rem;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 6vw, 2.8rem);
+  line-height: 1.15;
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  line-height: 1.25;
+  margin: 0 0 1rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.35rem;
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin: 0 0 1.75rem;
+  max-width: 38rem;
+}
+
+.button {
+  display: inline-block;
+  background: var(--teal);
+  color: var(--on-teal);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  min-height: 48px;
+}
+
+.button:hover {
+  background: var(--teal-strong);
+  color: var(--on-teal);
+}
+
+.note {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0.75rem 0 0;
+}
+
+/* Sections */
+
+section {
+  padding: 2.5rem 0;
+}
+
+section + section {
+  border-top: 1px solid var(--border);
+}
+
+.pains {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.pains li {
+  background: var(--surface-warm);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+
+.cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.1rem 1.2rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.private {
+  background: var(--surface-warm);
+  border-radius: 20px;
+  padding: 1.5rem 1.25rem;
+}
+
+.private .quote {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.checks {
+  padding-left: 1.25rem;
+  margin: 0 0 1rem;
+}
+
+.checks li + li {
+  margin-top: 0.4rem;
+}
+
+.small {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* Prices */
+
+.plans {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.plan {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem;
+}
+
+.plan.plus {
+  border: 2px solid var(--teal);
+}
+
+.plan h3 {
+  font-size: 1.25rem;
+}
+
+.price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+.plan ul {
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+/* Join */
+
+.join {
+  text-align: center;
+}
+
+.join .lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Footer */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0 2.5rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Privacy notice */
+
+.doc {
+  padding: 1.5rem 0 3rem;
+  max-width: 42rem;
+}
+
+.doc h2 {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+}
+
+.doc ul {
+  padding-left: 1.25rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

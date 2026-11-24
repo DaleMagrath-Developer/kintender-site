@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kinkeeper">
+  <rect width="64" height="64" rx="14" fill="#00696B"/>
+  <path d="M32 12 10 30h6v20h32V30h6z" fill="#FFDCBF"/>
+  <path d="M32 45s-10-6.2-10-12.6c0-3.2 2.4-5.4 5.2-5.4 2.1 0 3.8 1.2 4.8 3 1-1.8 2.7-3 4.8-3 2.8 0 5.2 2.2 5.2 5.4C42 38.8 32 45 32 45z" fill="#00696B"/>
+</svg>
